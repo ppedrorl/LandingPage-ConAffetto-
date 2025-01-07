@@ -31,3 +31,36 @@ function onScroll() {
   }
 }
 window.addEventListener("scroll", onScroll);
+
+
+// Animção Texto CTA 
+document.addEventListener("DOMContentLoaded", () => {
+  const cta = document.querySelectorAll(".textocta");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animado");
+      }
+      else {
+        entry.target.classList.remove("animado");
+      }
+    });
+  });
+  cta.forEach((el) => observer.observe(el));
+});
+
+// Animção Texto CTA 
+document.addEventListener("DOMContentLoaded", () => {
+  const listmenu = document.querySelectorAll(".listmenu");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("ativo");
+      }
+      else {
+        entry.target.classList.remove("ativo");
+      }
+    });
+  });
+  listmenu.forEach((el) => observer.observe(el));
+});
