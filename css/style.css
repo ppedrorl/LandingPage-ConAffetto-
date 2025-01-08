@@ -15,6 +15,8 @@
   --fontroboto: "Roboto", serif;
 }
 * {
+  color: var(--texto);
+  font-family: var(--fontroboto);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -93,7 +95,7 @@ header.scrolled {
   font-size: 1.5rem;
   
 }
-.listmenu.ativo ul li a{
+.listmenu.desktop.ativo li a{
   color: var(--marromescuro);
   border-bottom: 1px solid var(--marrom);
   
@@ -225,7 +227,7 @@ section .textocta {
     flex-direction: column;
     gap: 15px;
     position: absolute;
-    top: 20px;
+    top: 10px;
     left: -250px;
     width: 25%;
     opacity: 0 ;
@@ -262,6 +264,7 @@ section .textocta .btn-home button:hover{
 section .txthome h1 {
   font-family: var(--fontnoto);
   font-size: 2.25rem;
+  color: var(--trigo);
 }
 section .txthome h3 {
   font-family: monospace;
@@ -342,6 +345,311 @@ section .textocta h2 {
     width: 50%;
   }
 }
+/* Clube Options */
+.clubeoptions h1 { 
+  padding: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--texto);
+}
+.cards{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 3rem;
+  justify-content: center;
+}
+.card{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 1px 3px 3px 1px var(--sombra);
+  text-align: center;
+  background-color: var(--marrom);
+  color: var(--trigo);  
+  h3{
+    color: var(--trigo);
+    font-size: 2rem;    
+  }
+  h4{
+    color: var(--trigo);
+  }
+}
+
+/* Options View */
+.btnoptions{
+ 
+  color: var(--marrom);
+  top: calc(100% / 2);
+  position: absolute;
+}
+.btnoptions i{
+  padding: 0.5rem;
+}
+.btnoptions:hover{
+  background-color: var(--marrom);
+  border-radius: 15px;
+  box-shadow: 1px 3px 3px 1px var(--sombra);
+}
+.btnoptions.anterior{
+  left: 0;
+}
+.btnoptions.proximo{
+  right: 0;
+}
+.optionsview{
+  position: relative;
+  margin: 8rem auto auto auto;
+  background-image: url(../img/backgroundplanos.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  max-width: 1250px;
+  height: 350px;
+}
+.options{
+  position: relative;
+}
+.option{
+  position: absolute;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+
+}
+.infos{
+  padding: 1rem 2rem 1rem 0rem;
+  margin-top: -1.5rem;
+}
+
+.cesta{
+  margin: -100px 0 0 130px;
+  width: 60%;
+  max-width: 450px;
+}
+.cesta.c2{
+  max-width: 291px;
+  margin: -150px 0 0 260px;
+}
+.cesta img{
+  width: 100%;
+}
+.titulo{
+  padding-left: 1rem;
+}
+p.cestaffeto{
+  color: var(--marrom);
+  font-size: 1rem;
+  line-height: 1.2rem;
+}
+p.opcao{
+  color: var(--marrom);
+  font-size: 2rem;
+  line-height: 1.2rem;
+  font-family: var(--fontnoto);
+  margin-top: 0.5rem;
+}
+.descricao{
+  padding-left: 1rem;
+  width: 75%;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+}
+/* PlanosCTA */
+.plano{
+  width: 50%;
+  
+  border-radius: 15px;
+}
+.planoscta{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+  
+.tarjadesc h2{
+  font-size: 1.1rem;
+  padding: 0.2rem;
+  background-color:var(--marromgradiente);
+  border-radius: 20px;
+  color: var(--trigo);
+  text-align: center;
+  }
+
+.precoanterior{
+  text-align: center;
+  font-size: 0.8rem;
+}
+.preconovo{
+  text-align: center;
+
+}
+.spangrande{
+  font-family: var(--fontnoto);
+  font-size: 2.5rem;
+}
+.economiaanual{
+  padding: 0.5rem 0;
+  text-align: center;
+  font-size: 0.6rem;
+}
+.assine{
+  margin-top: 0.5rem;
+  text-align: center;
+  box-shadow: 1px 3px 3px 1px var(--sombra);
+  padding: 0.5rem 0;
+  display: inline-block;
+  background-color: var(--marrom);
+  color: var(--trigo);
+  font-size: 1.25rem;
+  width: 100%;
+  border-radius: 0 0 15px 15px;
+}
+.brindes{
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 85%;
+  text-align: center;
+  margin: auto;
+  border-radius: 20px;
+  background-color: var(--marromgradiente);
+  i{
+    color: var(--trigo);
+    padding: 0;
+    font-size: 1rem;
+  }
+  p{
+    color: var(--trigo);
+    font-size: 1rem;
+  }
+}
+.btnbrinde {
+  transition: 0.3s;
+}
+.btnbrinde.aberto .bi-caret-down {
+  
+  writing-mode: vertical-rl; /* Altera a direção do texto */
+  direction: rtl; /* Define a direção da escrita */
+  transform: scale(-1, -1); /* Inverte horizontal e vertical */
+  
+}
+.brindes.detalhes{
+  padding: 0;
+  height: 0px;
+  opacity: 0;
+  transition: opacity 0.3s, height 0.5s;
+  p{
+    font-size: 0.6rem;
+  }
+}
+.brindes.detalhes.ativo{
+  height: 70px;
+  opacity: 1;
+}
+
+
+span.detalhe{
+  
+  text-align: center;
+  display: inline-block;
+  padding: 0.5rem;
+  font-family: var(--fontnoto);
+  font-size: 0.8rem;
+  width: 100%;
+  background-color: var(--marrom);
+  border-radius: 15px 15px 0px 0px;
+    color: var(--trigo);
+}
+.info-plano{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+.info-plano1 h3{
+  font-size: 1.2rem;
+}
+/* Animação Options */
+.card.card1{
+  color: var(--trigo);
+  background-color: var(--marrom);
+  transform: scale(1);
+  transition: 0.3s;
+  h3{
+    color: var(--trigo);
+    font-size: 2rem;    
+  }
+  h4{
+    color: var(--trigo);
+  }
+}
+.card.card1.ativo{
+  color: var(--texto);
+  background-color: var(--trigo);
+  transform: scale(1.15);
+  h3{
+    color: var(--texto);
+    font-size: 2rem;    
+  }
+  h4{
+    color: var(--texto);
+  }
+}
+.card.card2{
+  color: var(--trigo);
+  background-color: var(--marrom);
+  transform: scale(1);
+  transition: 0.3s;
+  h3{
+    color: var(--trigo);
+    font-size: 2rem;    
+  }
+  h4{
+    color: var(--trigo);
+  }
+}
+.card.card2.ativo{
+  color: var(--texto);
+  background-color: var(--trigo);
+  transform: scale(1.15);
+  h3{
+    color: var(--texto);
+    font-size: 2rem;    
+  }
+  h4{
+    color: var(--texto);
+  }
+}
+.option.o1{
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+}
+.option.o1.ativo {
+  visibility: visible;
+  opacity: 1;
+}
+.option.o2{
+  transition: .3s;
+  left: 7px;
+  top:19px;
+  visibility: hidden;
+  opacity: 0;
+}
+.option.o2.ativo {
+  visibility: visible;
+  opacity: 1;
+}
+
+
 
 @media screen and (max-width: 970px) {
   /* Header */
@@ -381,7 +689,20 @@ section .textocta h2 {
   }
 
 @media screen and (max-width: 680px){
-  
+  /* Header */
+  .flex.header{
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+  .logo{
+    padding: 0.5rem;
+  }
+  .btn-abrirmb{
+    padding: 0.5rem;
+  }
+  header i{
+    padding: 0.5rem;
+  }
   section .textocta{
     transform: scale(0.45);
     width: 283px;
@@ -402,4 +723,7 @@ section .textocta h2 {
 .passo{
   width: 70%;
 }
+/* Clube Options */
+.cards{
+  gap: 1rem;}
 }

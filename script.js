@@ -64,3 +64,40 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   listmenu.forEach((el) => observer.observe(el));
 });
+
+// Animação Options
+function toggleDiv(selectedCard) {
+  const option1 = document.getElementById("option1");
+  const option2 = document.getElementById("option2");
+  const card1 = document.getElementById("card1");
+  const card2 = document.getElementById("card2");
+
+  option1.classList.remove("ativo");
+  option2.classList.remove("ativo");
+  card1.classList.remove("ativo");
+  card2.classList.remove("ativo");
+
+  if (selectedCard === 1) {
+    option1.classList.add("ativo");
+    card1.classList.add("ativo");
+    
+  }
+  else if (selectedCard === 2) {
+    option2.classList.add("ativo");
+    card2.classList.add("ativo");
+  }
+}
+
+// Animação Brindes
+let btnbrinde = document.getElementById("btnbrinde")
+let detalhes = document.getElementById("brindedetalhes")
+
+btnbrinde.addEventListener("click", ()=> {
+    detalhes.classList.toggle("ativo");
+    btnbrinde.classList.toggle("aberto");
+})
+detalhes.addEventListener("click", () => {
+  detalhes.classList.remove("ativo");
+  btnbrinde.classList.remove("aberto");
+})
+
