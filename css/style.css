@@ -531,8 +531,8 @@ section .textocta h2 {
   right: 0;
 }
 .optionsview{
-  position: relative;
   overflow: hidden;
+  position: relative;
   margin: 8rem auto auto auto;
   background-image: url(../img/backgroundplanos.png);
   background-repeat: no-repeat;
@@ -573,6 +573,7 @@ section .textocta h2 {
   padding-left: 1rem;
 }
 p.cestaffeto{
+  padding: 1rem 0 0 0;
   color: var(--marrom);
   font-size: 1rem;
   line-height: 1.2rem;
@@ -816,6 +817,7 @@ span.detalhe{
     transform: scale(0.65);
     width: 283px;
     top:10px;
+    
   }
   section .textocta.animado{
     transform: scale(0.65);
@@ -870,50 +872,55 @@ span.detalhe{
     display: none;
   }
   .planoscta1.mobile{
-    display: block;
-    opacity: 0;
+    display: none;
     visibility: hidden;
-    top: 500px;
+    opacity: 0;
+    top: 425px;
+    background-color: var(--trigotransp);
     position: relative;
-    display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
     gap: 1rem;
-    background-color: var(--trigotransp);
     border-radius: 1rem;
     padding: 1rem;
   }
   .planoscta1.mobile.ativo{
-    
+    display: flex;
     visibility: visible;
     opacity: 1;
   }
   .planoscta2.mobile{
-    display: block;
+    display: none;
     visibility: hidden;
     opacity: 0;
-    top: 200px;
+    top: 425px;
     background-color: var(--trigotransp);
     position: relative;
-    display: flex;
+    flex-direction: column;
     flex-wrap: nowrap;
     gap: 1rem;
     border-radius: 1rem;
     padding: 1rem;
   }
   .planoscta2.mobile.ativo{
+    display: flex;
     visibility: visible;
     opacity: 1;
     
+  }
+  .plano{
+    width: 100%;
   }
   .optionsview {
     position: relative;
     margin: 1rem 0;
     background-image: linear-gradient(360deg, #64473a, #755343, #d8c7ad );
-    height: 900px;}
+    height: 1100px;}
   .option{
     padding: 0;
     }
     .cesta{
+      margin: auto;
       position: absolute;
       width: 75%;
       top: 175px;
@@ -922,6 +929,7 @@ span.detalhe{
       max-width: 415px;
     }
     .cesta.c2{
+      margin: auto;
       position: absolute;
       width: 75%;
       top: 80px;
@@ -997,27 +1005,30 @@ span.detalhe{
   position: relative;
   margin: 1rem 0;
   background-image: linear-gradient(360deg, #64473a, #755343, #d8c7ad );
-  height: 900px;}
+  height: 1100px;}
 .option{
   padding: 0;
   }
   .cesta{
+    margin: auto;
     position: absolute;
     width: 75%;
-    top: 175px;
-    left: -50px;
+    top: 125px;
+    left: 75px;
     min-height: 250px;
     max-width: 415px;
   }
   .cesta.c2{
+    margin: auto;
     position: absolute;
     width: 75%;
-    top: 75px;
-    left: -115px;
+    top: -25px;
+    left: 115px;
     min-height: 250px;
     max-width: 291px;
   }
   p.cestaffetto{
+    
     font-size: 1.5rem;
   }
   p.opcao{
