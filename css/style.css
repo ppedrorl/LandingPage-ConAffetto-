@@ -924,7 +924,7 @@ span.detalhe{
       position: absolute;
       width: 75%;
       top: 80px;
-      left: 125px;
+      left: 100px;
       min-height: 250px;
       max-width: 291px;
     }
@@ -1012,7 +1012,7 @@ span.detalhe{
     position: absolute;
     width: 75%;
     top: 60px;
-    left: 0px;
+    left: -75px;
     min-height: 250px;
     max-width: 291px;
   }
