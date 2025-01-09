@@ -815,13 +815,12 @@ span.detalhe{
     transform: scale(0.65);
     width: 283px;
     top:10px;
-    left: -230px;
   }
   section .textocta.animado{
     transform: scale(0.65);
     width: 283px;
     top:10px;
-    left: -15px;
+    left: 15px;
   }
   /* Clube */
   .clube .interface{
@@ -979,7 +978,6 @@ span.detalhe{
     transform: scale(0.45);
     width: 283px;
     top:0px;
-    left: -200px;
   }
   section .textocta.animado{
     transform: scale(0.35);
