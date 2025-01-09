@@ -118,6 +118,32 @@ detalhes2.addEventListener("click", () => {
   detalhes2.classList.remove("ativo");
   btnbrinde2.classList.remove("aberto");
 })
+
+// Animação Brindes Mobile
+let btnbrindemob = document.getElementById("btnbrindemobile")
+let detalhesmob = document.getElementById("brindedetalhesmobile")
+
+btnbrindemob.addEventListener("click", ()=> {
+    detalhesmob.classList.toggle("ativo");
+    btnbrindemob.classList.toggle("aberto");
+})
+detalhesmob.addEventListener("click", () => {
+  detalhesmob.classList.remove("ativo");
+  btnbrindemob.classList.remove("aberto");
+})
+// Animação Brindes Mobile 2
+let btnbrindemob2 = document.getElementById("btnbrindemobile2")
+let detalhesmob2 = document.getElementById("brindedetalhesmobile2")
+
+btnbrindemob2.addEventListener("click", ()=> {
+    detalhesmob2.classList.toggle("ativo");
+    btnbrindemob2.classList.toggle("aberto");
+})
+detalhesmob2.addEventListener("click", () => {
+  detalhesmob2.classList.remove("ativo");
+  btnbrindemob2.classList.remove("aberto");
+})
+// Seleção de elementos do slider
 const slider = document.querySelector('.passosmobile');
 const slides = document.querySelectorAll('.passomobile');
 const dots = document.querySelectorAll('.dots div');
@@ -135,45 +161,54 @@ const updateDots = () => {
 
 // Atualiza a posição do slider
 const updateSliderPosition = () => {
-  slider.style.transform = `translateX(${-currentIndex * 100}%)`;
-  updateDots();
+  slider.style.transition = 'transform 0.3s ease-out'; // Transição suave
+  slider.style.transform = `translateX(${-currentIndex * 100}%)`; // Move o slider
+  updateDots(); // Atualiza os dots
 };
 
-// Botões
+// Navegação anterior
 prevButton.addEventListener('click', () => {
   if (currentIndex > 0) currentIndex--;
   updateSliderPosition();
 });
 
+// Navegação próxima
 nextButton.addEventListener('click', () => {
   if (currentIndex < slides.length - 1) currentIndex++;
   updateSliderPosition();
 });
 
-// Swipe
+// Lógica de swipe
 let startX = 0;
 let isDragging = false;
 
 slider.addEventListener('pointerdown', (e) => {
   isDragging = true;
   startX = e.clientX;
-  slider.style.transition = 'none';
+  slider.style.transition = 'none'; // Desabilita a transição ao arrastar
 });
 
 slider.addEventListener('pointermove', (e) => {
   if (!isDragging) return;
   const deltaX = e.clientX - startX;
-  slider.style.transform = `translateX(${-currentIndex * 100 + deltaX / slider.offsetWidth * 100}%)`;
+  // Move o slider enquanto arrasta
+  slider.style.transform = `translateX(${-currentIndex * 100 + (deltaX / slider.offsetWidth) * 100}%)`;
 });
 
 slider.addEventListener('pointerup', (e) => {
   isDragging = false;
   const deltaX = e.clientX - startX;
-  if (deltaX < -50 && currentIndex < slides.length - 1) currentIndex++;
-  if (deltaX > 50 && currentIndex > 0) currentIndex--;
-  slider.style.transition = 'transform 0.3s ease-out';
-  updateSliderPosition();
+
+  // Se o movimento for grande o suficiente, altera o índice
+  if (deltaX < -50 && currentIndex < slides.length - 1) {
+    currentIndex++;
+  } else if (deltaX > 50 && currentIndex > 0) {
+    currentIndex--;
+  }
+
+  slider.style.transition = 'transform 0.3s ease-out'; // Reabilita a transição suave
+  updateSliderPosition(); // Atualiza a posição do slider
 });
 
+// Inicializa os dots
 updateDots();
-

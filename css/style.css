@@ -75,6 +75,7 @@ header.scrolled {
 }
 .logo a:hover {
   color: var(--trigo);
+  text-shadow: 1px 1px var(--marromtransp);
 }
 #imglogo {
   height: 1.5rem;
@@ -99,6 +100,12 @@ header.scrolled {
   color: var(--marromescuro);
   border-bottom: 1px solid var(--marrom);
   
+  
+}
+.listmenu.desktop.ativo li a:hover{
+  color: var(--trigo);
+  border-bottom: 2px solid var(--trigo);
+  text-shadow: 1px 1px var(--marromtransp);
 }
 
 .listmenu ul li a:hover {
@@ -131,6 +138,7 @@ i {
 }
 i:hover {
   color: var(--trigo);
+  text-shadow: 1px 1px var(--marromtransp);
 }
 .btn-abrirmb {
   display: none;
@@ -180,6 +188,9 @@ i:hover {
   display: inline-block;
   width: 100%;
   transition: 0.5s;
+  i{
+    color: var(--trigo);
+  }
 }
 .mobile ul li:hover {
   background-color: var(--marrom);
@@ -537,6 +548,7 @@ section .textocta h2 {
   padding: 1rem;
   display: flex;
   justify-content: center;
+  
 
 }
 .infos{
@@ -770,6 +782,12 @@ span.detalhe{
   visibility: visible;
   opacity: 1;
 }
+.planoscta1.mobile{
+  display: none;
+}
+.planoscta2.mobile{
+  display: none;
+}
 
 
 
@@ -844,7 +862,7 @@ span.detalhe{
     }   
     
     
-  }
+  
   .descricao{
     width: 60%;
   }
@@ -852,6 +870,7 @@ span.detalhe{
     display: none;
   }
   .planoscta1.mobile{
+    display: block;
     opacity: 0;
     visibility: hidden;
     top: 500px;
@@ -864,10 +883,12 @@ span.detalhe{
     padding: 1rem;
   }
   .planoscta1.mobile.ativo{
+    
     visibility: visible;
     opacity: 1;
   }
   .planoscta2.mobile{
+    display: block;
     visibility: hidden;
     opacity: 0;
     top: 200px;
@@ -888,7 +909,7 @@ span.detalhe{
     position: relative;
     margin: 1rem 0;
     background-image: linear-gradient(360deg, #64473a, #755343, #d8c7ad );
-    height: 800px;}
+    height: 900px;}
   .option{
     padding: 0;
     }
@@ -902,10 +923,9 @@ span.detalhe{
     }
     .cesta.c2{
       position: absolute;
-      margin: -150px 0 0 260px;
       width: 75%;
-      top: 95px;
-      left: -50px;
+      top: 80px;
+      left: 125px;
       min-height: 250px;
       max-width: 291px;
     }
@@ -939,7 +959,7 @@ span.detalhe{
     transform: scale(1);
     width: 75%;
   }
-
+}
 @media screen and (max-width: 680px){
   /* Header */
   .flex.header{
@@ -978,7 +998,7 @@ span.detalhe{
   position: relative;
   margin: 1rem 0;
   background-image: linear-gradient(360deg, #64473a, #755343, #d8c7ad );
-  height: 800px;}
+  height: 900px;}
 .option{
   padding: 0;
   }
@@ -992,10 +1012,9 @@ span.detalhe{
   }
   .cesta.c2{
     position: absolute;
-    margin: -150px 0 0 260px;
     width: 75%;
-    top: 95px;
-    left: -50px;
+    top: 60px;
+    left: 0px;
     min-height: 250px;
     max-width: 291px;
   }
