@@ -532,6 +532,7 @@ section .textocta h2 {
 }
 .optionsview{
   position: relative;
+  overflow: hidden;
   margin: 8rem auto auto auto;
   background-image: url(../img/backgroundplanos.png);
   background-repeat: no-repeat;
