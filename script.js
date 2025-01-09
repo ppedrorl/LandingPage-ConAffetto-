@@ -33,6 +33,66 @@ function onScroll() {
 window.addEventListener("scroll", onScroll);
 
 
+const slider = document.querySelector('.passosmobile');
+const slides = document.querySelectorAll('.passomobile');
+const dots = document.querySelectorAll('.dots div');
+const prevButton = document.querySelector('.btnpassosanterior');
+const nextButton = document.querySelector('.btnpassosproximo');
+
+let currentIndex = 0;
+
+// Atualiza os dots
+const updateDots = () => {
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentIndex);
+  });
+};
+
+// Atualiza a posição do slider
+const updateSliderPosition = () => {
+  slider.style.transform = `translateX(${-currentIndex * 100}%)`;
+  updateDots();
+};
+
+// Botões
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) currentIndex--;
+  updateSliderPosition();
+});
+
+nextButton.addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) currentIndex++;
+  updateSliderPosition();
+});
+
+// Swipe
+let startX = 0;
+let isDragging = false;
+
+slider.addEventListener('pointerdown', (e) => {
+  e.stopPropagation();
+  isDragging = true;
+  startX = e.clientX;
+  slider.style.transition = 'none';
+});
+
+slider.addEventListener('pointermove', (e) => {
+  if (!isDragging) return;
+  const deltaX = e.clientX - startX;
+  slider.style.transform = `translateX(${-currentIndex * 100 + deltaX / slider.offsetWidth * 100}%)`;
+});
+
+slider.addEventListener('pointerup', (e) => {
+  isDragging = false;
+  const deltaX = e.clientX - startX;
+  if (deltaX < -50 && currentIndex < slides.length - 1) currentIndex++;
+  if (deltaX > 50 && currentIndex > 0) currentIndex--;
+  slider.style.transition = 'transform 0.3s ease-out';
+  updateSliderPosition();
+});
+
+updateDots();
+
 // Animção Texto CTA 
 document.addEventListener("DOMContentLoaded", () => {
   const cta = document.querySelectorAll(".textocta");
@@ -143,72 +203,3 @@ detalhesmob2.addEventListener("click", () => {
   detalhesmob2.classList.remove("ativo");
   btnbrindemob2.classList.remove("aberto");
 })
-// Seleção de elementos do slider
-const slider = document.querySelector('.passosmobile');
-const slides = document.querySelectorAll('.passomobile');
-const dots = document.querySelectorAll('.dots div');
-const prevButton = document.querySelector('.btnpassosanterior');
-const nextButton = document.querySelector('.btnpassosproximo');
-
-let currentIndex = 0;
-
-// Atualiza os dots
-const updateDots = () => {
-  dots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentIndex);
-  });
-};
-
-// Atualiza a posição do slider
-const updateSliderPosition = () => {
-  slider.style.transition = 'transform 0.3s ease-out'; // Transição suave
-  slider.style.transform = `translateX(${-currentIndex * 100}%)`; // Move o slider
-  updateDots(); // Atualiza os dots
-};
-
-// Navegação anterior
-prevButton.addEventListener('click', () => {
-  if (currentIndex > 0) currentIndex--;
-  updateSliderPosition();
-});
-
-// Navegação próxima
-nextButton.addEventListener('click', () => {
-  if (currentIndex < slides.length - 1) currentIndex++;
-  updateSliderPosition();
-});
-
-// Lógica de swipe
-let startX = 0;
-let isDragging = false;
-
-slider.addEventListener('pointerdown', (e) => {
-  isDragging = true;
-  startX = e.clientX;
-  slider.style.transition = 'none'; // Desabilita a transição ao arrastar
-});
-
-slider.addEventListener('pointermove', (e) => {
-  if (!isDragging) return;
-  const deltaX = e.clientX - startX;
-  // Move o slider enquanto arrasta
-  slider.style.transform = `translateX(${-currentIndex * 100 + (deltaX / slider.offsetWidth) * 100}%)`;
-});
-
-slider.addEventListener('pointerup', (e) => {
-  isDragging = false;
-  const deltaX = e.clientX - startX;
-
-  // Se o movimento for grande o suficiente, altera o índice
-  if (deltaX < -50 && currentIndex < slides.length - 1) {
-    currentIndex++;
-  } else if (deltaX > 50 && currentIndex > 0) {
-    currentIndex--;
-  }
-
-  slider.style.transition = 'transform 0.3s ease-out'; // Reabilita a transição suave
-  updateSliderPosition(); // Atualiza a posição do slider
-});
-
-// Inicializa os dots
-updateDots();
