@@ -33,6 +33,66 @@ function onScroll() {
 window.addEventListener("scroll", onScroll);
 
 
+const slider = document.querySelector('.passosmobile');
+const slides = document.querySelectorAll('.passomobile');
+const dots = document.querySelectorAll('.dots div');
+const prevButton = document.querySelector('.btnpassosanterior');
+const nextButton = document.querySelector('.btnpassosproximo');
+
+let currentIndex = 0;
+
+// Atualiza os dots
+const updateDots = () => {
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentIndex);
+  });
+};
+
+// Atualiza a posição do slider
+const updateSliderPosition = () => {
+  slider.style.transform = `translateX(${-currentIndex * 100}%)`;
+  updateDots();
+};
+
+// Botões
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) currentIndex--;
+  updateSliderPosition();
+});
+
+nextButton.addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) currentIndex++;
+  updateSliderPosition();
+});
+
+// Swipe
+let startX = 0;
+let isDragging = false;
+
+slider.addEventListener('pointerdown', (e) => {
+  e.stopPropagation();
+  isDragging = true;
+  startX = e.clientX;
+  slider.style.transition = 'none';
+});
+
+slider.addEventListener('pointermove', (e) => {
+  if (!isDragging) return;
+  const deltaX = e.clientX - startX;
+  slider.style.transform = `translateX(${-currentIndex * 100 + deltaX / slider.offsetWidth * 100}%)`;
+});
+
+slider.addEventListener('pointerup', (e) => {
+  isDragging = false;
+  const deltaX = e.clientX - startX;
+  if (deltaX < -50 && currentIndex < slides.length - 1) currentIndex++;
+  if (deltaX > 50 && currentIndex > 0) currentIndex--;
+  slider.style.transition = 'transform 0.3s ease-out';
+  updateSliderPosition();
+});
+
+updateDots();
+
 // Animção Texto CTA 
 document.addEventListener("DOMContentLoaded", () => {
   const cta = document.querySelectorAll(".textocta");
@@ -118,62 +178,28 @@ detalhes2.addEventListener("click", () => {
   detalhes2.classList.remove("ativo");
   btnbrinde2.classList.remove("aberto");
 })
-const slider = document.querySelector('.passosmobile');
-const slides = document.querySelectorAll('.passomobile');
-const dots = document.querySelectorAll('.dots div');
-const prevButton = document.querySelector('.btnpassosanterior');
-const nextButton = document.querySelector('.btnpassosproximo');
 
-let currentIndex = 0;
+// Animação Brindes Mobile
+let btnbrindemob = document.getElementById("btnbrindemobile")
+let detalhesmob = document.getElementById("brindedetalhesmobile")
 
-// Atualiza os dots
-const updateDots = () => {
-  dots.forEach((dot, index) => {
-    dot.classList.toggle('active', index === currentIndex);
-  });
-};
+btnbrindemob.addEventListener("click", ()=> {
+    detalhesmob.classList.toggle("ativo");
+    btnbrindemob.classList.toggle("aberto");
+})
+detalhesmob.addEventListener("click", () => {
+  detalhesmob.classList.remove("ativo");
+  btnbrindemob.classList.remove("aberto");
+})
+// Animação Brindes Mobile 2
+let btnbrindemob2 = document.getElementById("btnbrindemobile2")
+let detalhesmob2 = document.getElementById("brindedetalhesmobile2")
 
-// Atualiza a posição do slider
-const updateSliderPosition = () => {
-  slider.style.transform = `translateX(${-currentIndex * 100}%)`;
-  updateDots();
-};
-
-// Botões
-prevButton.addEventListener('click', () => {
-  if (currentIndex > 0) currentIndex--;
-  updateSliderPosition();
-});
-
-nextButton.addEventListener('click', () => {
-  if (currentIndex < slides.length - 1) currentIndex++;
-  updateSliderPosition();
-});
-
-// Swipe
-let startX = 0;
-let isDragging = false;
-
-slider.addEventListener('pointerdown', (e) => {
-  isDragging = true;
-  startX = e.clientX;
-  slider.style.transition = 'none';
-});
-
-slider.addEventListener('pointermove', (e) => {
-  if (!isDragging) return;
-  const deltaX = e.clientX - startX;
-  slider.style.transform = `translateX(${-currentIndex * 100 + deltaX / slider.offsetWidth * 100}%)`;
-});
-
-slider.addEventListener('pointerup', (e) => {
-  isDragging = false;
-  const deltaX = e.clientX - startX;
-  if (deltaX < -50 && currentIndex < slides.length - 1) currentIndex++;
-  if (deltaX > 50 && currentIndex > 0) currentIndex--;
-  slider.style.transition = 'transform 0.3s ease-out';
-  updateSliderPosition();
-});
-
-updateDots();
-
+btnbrindemob2.addEventListener("click", ()=> {
+    detalhesmob2.classList.toggle("ativo");
+    btnbrindemob2.classList.toggle("aberto");
+})
+detalhesmob2.addEventListener("click", () => {
+  detalhesmob2.classList.remove("ativo");
+  btnbrindemob2.classList.remove("aberto");
+})
