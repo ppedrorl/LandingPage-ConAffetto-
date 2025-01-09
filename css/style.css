@@ -1012,8 +1012,8 @@ span.detalhe{
   .cesta.c2{
     position: absolute;
     width: 75%;
-    top: 60px;
-    left: -75px;
+    top: 75px;
+    left: -115px;
     min-height: 250px;
     max-width: 291px;
   }
